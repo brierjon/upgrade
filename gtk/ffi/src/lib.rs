@@ -3,7 +3,6 @@ use i18n_embed::DesktopLanguageRequester;
 use pop_upgrade_gtk::*;
 use std::{ffi, ptr};
 
-#[no_mangle]
 pub struct PopUpgradeWidget;
 
 pub type PopUpgradeWidgetErrorCallback =
