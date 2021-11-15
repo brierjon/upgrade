@@ -278,7 +278,7 @@ Pin-Priority: 1001
 fn update_preferences_script(release: &str) -> anyhow::Result<()> {
     let data = match release {
         "bionic" | "focal" | "hirsute" => PREFERENCES_BIONIC,
-        _ => PREFERENCES_IMPISH
+        _ => PREFERENCES_IMPISH,
     };
 
     fs::write("/etc/apt/preferences.d/pop-default-settings", data.as_bytes())
