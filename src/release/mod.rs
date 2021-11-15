@@ -23,14 +23,7 @@ use apt_cmd::{
 
 use futures::prelude::*;
 
-use std::{
-    collections::HashSet,
-    convert::TryFrom,
-    fs::{self, File},
-    os::unix::fs::symlink,
-    path::Path,
-    sync::Arc,
-};
+use std::{collections::HashSet, convert::TryFrom, fs::{self, File}, os::unix::fs::symlink, path::Path, sync::Arc};
 use systemd_boot_conf::SystemdBootConf;
 
 use ubuntu_version::{Codename, Version};
@@ -192,7 +185,11 @@ pub async fn apt_fetch(uris: HashSet<AptRequest>, func: &dyn Fn(FetchEvent)) -> 
         .concurrent(CONCURRENT_FETCHES)
         .delay_between(DELAY_BETWEEN)
         .retries(RETRIES)
-        .fetch(fetch_rx.into_stream(), Arc::from(Path::new(PARTIAL)));
+        .fetch(
+            fetch_rx.into_stream(),
+            Arc::from(Path::new(PARTIAL)),
+            Arc::from(Path::new(ARCHIVES))
+        );
 
     // The system which sends package-fetching requests
     let sender = async move {
@@ -229,13 +226,7 @@ pub async fn apt_fetch(uris: HashSet<AptRequest>, func: &dyn Fn(FetchEvent)) -> 
                     func(FetchEvent::Fetching((*event.package).clone()));
                 }
 
-                EventKind::Validated(src) => {
-                    let dst = Path::new(ARCHIVES).join(&event.package.name);
-
-                    async_fs::rename(&src, &dst)
-                        .await
-                        .context("failed to rename fetched debian package")?;
-
+                EventKind::Validated => {
                     func(FetchEvent::Fetched((*event.package).clone()));
                 }
 

@@ -41,9 +41,9 @@ checksum = "ee10e43ae4a853c0a3591d4e2ada1719e553be18199d9da9d4a83f5927c2f5c7"
 
 [[package]]
 name = "apt-cmd"
-version = "0.1.2"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "730d9701389268390cc7f3cd14b911c4934186f633150ad11aaee3fc03f6ec4b"
+checksum = "8cebdcee89a8be07aadd7b0fdc0ea5f57f7c04d8499567eb26862272803e1420"
 dependencies = [
  "anyhow",
  "as-result",
@@ -60,7 +60,7 @@ dependencies = [
  "hex",
  "isahc",
  "md-5",
- "procfs 0.11.0",
+ "procfs",
  "smolscale",
  "thiserror",
 ]
@@ -85,7 +85,7 @@ dependencies = [
  "hex",
  "isahc",
  "md-5",
- "procfs 0.11.0",
+ "procfs",
  "smolscale",
  "thiserror",
 ]
@@ -1934,9 +1934,9 @@ dependencies = [
 
 [[package]]
 name = "os_str_bytes"
-version = "4.2.0"
+version = "5.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "addaa943333a514159c80c97ff4a93306530d965d27e139188283cd13e06a799"
+checksum = "eec548a9ec896e20392939de0f32aabcdd8507358840f5ee4867792f3afcf494"
 dependencies = [
  "memchr",
 ]
@@ -2083,7 +2083,7 @@ name = "pop-upgrade"
 version = "1.0.0"
 dependencies = [
  "anyhow",
- "apt-cmd 0.1.2",
+ "apt-cmd 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "as-result",
  "async-fs",
  "async-io",
@@ -2119,7 +2119,7 @@ dependencies = [
  "os-release",
  "os_str_bytes",
  "proc-mounts",
- "procfs 0.10.1",
+ "procfs",
  "pwd",
  "rand",
  "regex",
@@ -2147,7 +2147,7 @@ dependencies = [
 name = "pop-upgrade-gtk"
 version = "1.0.0"
 dependencies = [
- "apt-cmd 0.2.0",
+ "apt-cmd 0.2.0 (git+https://github.com/pop-os/apt-cmd/)",
  "better-panic",
  "cascade 1.0.0",
  "chrono",
@@ -2261,21 +2261,6 @@ checksum = "2ad7e9c8d1b8c20f16a84d61d7c4c0325a5837c1307a2491b509cd92fb4e4442"
 dependencies = [
  "lazy_static",
  "partition-identity",
-]
-
-[[package]]
-name = "procfs"
-version = "0.10.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "95e344cafeaeefe487300c361654bcfc85db3ac53619eeccced29f5ea18c4c70"
-dependencies = [
- "bitflags",
- "byteorder",
- "chrono",
- "flate2",
- "hex",
- "lazy_static",
- "libc",
 ]
 
 [[package]]
