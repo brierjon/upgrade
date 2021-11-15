@@ -3,7 +3,8 @@ name = "pop-upgrade"
 version = "1.0.0"
 authors = ["Michael Aaron Murphy <mmstickman@gmail.com>"]
 license = "GPL-3.0"
-edition = "2018"
+edition = "2021"
+rust-version = "1.56"
 
 [workspace]
 members = [ "gtk", "gtk/ffi"]
