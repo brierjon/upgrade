@@ -2,7 +2,7 @@
 name = "pop-upgrade-gtk"
 version = "1.0.0"
 authors = ["Michael Aaron Murphy <mmstick@pm.me>"]
-edition = "2021"
+edition = "2018"
 
 [dependencies]
 apt-cmd = { git = "https://github.com/pop-os/apt-cmd/" }

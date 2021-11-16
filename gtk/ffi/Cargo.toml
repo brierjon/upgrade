@@ -2,7 +2,7 @@
 name = "pop-upgrade-gtk-ffi"
 version = "1.0.0"
 authors = ["Michael Aaron Murphy <mmstick@pm.me>"]
-edition = "2021"
+edition = "2018"
 
 [build-dependencies]
 cdylib-link-lines = "0.1"
