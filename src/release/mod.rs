@@ -23,7 +23,14 @@ use apt_cmd::{
 
 use futures::prelude::*;
 
-use std::{collections::HashSet, convert::TryFrom, fs::{self, File}, os::unix::fs::symlink, path::Path, sync::Arc};
+use std::{
+    collections::HashSet,
+    convert::TryFrom,
+    fs::{self, File},
+    os::unix::fs::symlink,
+    path::Path,
+    sync::Arc,
+};
 use systemd_boot_conf::SystemdBootConf;
 
 use ubuntu_version::{Codename, Version};
@@ -188,7 +195,7 @@ pub async fn apt_fetch(uris: HashSet<AptRequest>, func: &dyn Fn(FetchEvent)) -> 
         .fetch(
             fetch_rx.into_stream(),
             Arc::from(Path::new(PARTIAL)),
-            Arc::from(Path::new(ARCHIVES))
+            Arc::from(Path::new(ARCHIVES)),
         );
 
     // The system which sends package-fetching requests
