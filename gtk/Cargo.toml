@@ -35,5 +35,4 @@ ubuntu-version = "0.2.2"
 upower_dbus = "0.1"
 users = "0.11"
 yansi = "0.5"
-# pop-system-updater-gtk = { git = "https://github.com/pop-os/system-updater" }
-pop-system-updater-gtk = { path = "../../pop-system-updater/gtk" }
+pop-system-updater-gtk = { git = "https://github.com/pop-os/system-updater" }
